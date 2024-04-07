@@ -1,0 +1,10 @@
+<script setup lang="ts">
+import MainNavbar from './components/MainNavbar.vue'
+</script>
+
+<template>
+  <MainNavbar />
+  <main class="max-w-[1000px] mx-auto px-2">
+    <RouterView />
+  </main>
+</template>
