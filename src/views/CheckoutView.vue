@@ -4,6 +4,7 @@ import { useCartStore } from '@/stores/pinia'
 import { toast } from 'vue3-toastify'
 import { FaRegFaceSadTear } from '@kalimahapps/vue-icons'
 import router from '@/router'
+import { computed } from 'vue'
 const { cart, clearCart } = useCartStore()
 
 const inputs = [
@@ -30,6 +31,10 @@ const completePayment = async () => {
   clearCart()
   router.push('/thankyou')
 }
+
+const totalPrice = computed(() => {
+  return cart.reduce((total, curr) => total + curr.price, 0)
+})
 </script>
 
 <template>
@@ -89,6 +94,10 @@ const completePayment = async () => {
             </div>
           </div>
         </div>
+        <p class="ml-auto">
+          Total: <span class="font-semibold"> {{ totalPrice.toFixed(2) }}$</span>
+        </p>
+
         <div
           @click="completePayment"
           class="h-10 flex items-center justify-center font-semibold border-2 border-accent mx-10 mt-auto rounded-md cursor-pointer hover:bg-accent transition-colors hover:text-white"

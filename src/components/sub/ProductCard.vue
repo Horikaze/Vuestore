@@ -1,23 +1,27 @@
 <script setup lang="ts">
-import { useCartStore } from '@/stores/pinia'
+import { useCartStore, useFavStore } from '@/stores/pinia'
 import type { Product } from '@/types'
 import { FaRegHeart } from '@kalimahapps/vue-icons'
+import { FaHeart } from '@kalimahapps/vue-icons'
 import { FaCartPlus } from '@kalimahapps/vue-icons'
 defineProps<{
   product: Product
 }>()
 const { addToCart } = useCartStore()
+const { addToFav, fav } = useFavStore()
 </script>
 <template>
   <div
     class="w-full h-[420px] flex flex-col items-center justify-center bg-white p-3 border-2 rounded-md hover:drop-shadow-md transition-all cursor-pointer group font-semibold"
   >
     <div
+      @click="addToFav(product)"
       class="ml-auto flex text-red-500 items-center justify-center rounded-full hover:bg-gray-200 bg-white size-10 transition-all opacity-0 group-hover:opacity-100"
     >
-      <FaRegHeart class="size-6" />
+      <FaHeart v-if="fav.includes(product)" class="size-6" />
+      <FaRegHeart v-else class="size-6" />
     </div>
-    <div class="w-full h-56 rounded-md relative overflow-hidden">
+    <div class="w-full h-56 rounded-md relative overflow-hidden select-none">
       <img :src="product.image" :alt="product.title" class="object-contain size-full" />
     </div>
     <p class="mt-auto w-full leading-5">{{ product.title }}</p>

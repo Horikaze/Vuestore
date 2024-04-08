@@ -5,6 +5,7 @@ import { computed, ref } from 'vue'
 import { useClickOutside } from '../hooks/useClickOutside'
 import CardNavItem from './CardItem.vue'
 import { FaRegFaceSadTear } from '@kalimahapps/vue-icons'
+import router from '@/router'
 const { cart } = useCartStore()
 const isOpen = ref(false)
 
@@ -17,19 +18,27 @@ useClickOutside(cartContainerRef, () => {
 const totalPrice = computed(() => {
   return cart.reduce((total, curr) => total + curr.price, 0)
 })
+
+const checkout = () => {
+  isOpen.value = false
+  router.push('/checkout')
+}
 </script>
 
 <template>
-  <div class="relative">
+  <div class="relative h-full border-y-4 border-white">
     <div
       @click.stop="isOpen = !isOpen"
       :class="[
-        'flex items-center justify-center gap-x-2 size-full cursor-pointer font-semibold hover:bg-gray-300 transition-colors p-2 rounded-md select-none',
+        'flex items-center justify-center gap-x-1 size-full cursor-pointer font-semibold hover:bg-gray-300 transition-colors h-full rounded-md select-none px-2',
         isOpen ? 'bg-gray-300' : ''
       ]"
     >
-      <span class="text-lg">{{ cart.length }}</span>
+      <p class="text-lg">Cart</p>
       <FaCartShopping class="size-6" />
+      <div class="h-full flex">
+        <span class="font-semibold">{{ cart.length }}</span>
+      </div>
     </div>
     <div
       ref="cartContainerRef"
@@ -50,12 +59,12 @@ const totalPrice = computed(() => {
       <p>
         Total: <span class="font-semibold">{{ totalPrice.toFixed(2) }}$</span>
       </p>
-      <RouterLink
-        to="/checkout"
+      <div
+        @click="checkout"
         class="h-10 flex items-center justify-center font-semibold border-2 border-accent mx-10 mt-2 rounded-md cursor-pointer hover:bg-accent transition-colors hover:text-white"
       >
         <span>Checkout</span>
-      </RouterLink>
+      </div>
     </div>
   </div>
 </template>

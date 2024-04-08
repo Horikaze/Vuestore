@@ -26,15 +26,41 @@ export const useCartStore = defineStore('cart', () => {
     })
   }
   function removeFromCart(item: Product) {
-    console.log(cart.value)
     const index = cart.value.findIndex((i) => i.id === item.id)
     if (index !== -1) {
       cart.value.splice(index, 1)
     }
   }
   function clearCart() {
-    cart.value = []
+    cart.value.splice(0, cart.value.length)
   }
 
   return { cart, addToCart, removeFromCart, clearCart }
+})
+
+export const useFavStore = defineStore('fav', () => {
+  const fav = ref<Product[]>([])
+  function addToFav(newItem: Product) {
+    if (fav.value.includes(newItem)) {
+      removeFromFav(newItem)
+      return
+    }
+    fav.value.push(newItem)
+    toast(`Item <strong>${newItem.title}</strong> has been added to cart`, {
+      type: 'success',
+      hideProgressBar: true,
+      transition: 'slide',
+      dangerouslyHTMLString: true,
+      position: 'top-left'
+    })
+  }
+  function removeFromFav(item: Product) {
+    console.log(fav.value)
+    const index = fav.value.findIndex((i) => i.id === item.id)
+    if (index !== -1) {
+      fav.value.splice(index, 1)
+    }
+  }
+
+  return { fav, addToFav, removeFromFav }
 })
