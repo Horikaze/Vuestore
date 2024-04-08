@@ -3,7 +3,12 @@ import type { Product } from '@/types'
 import LoadingState from '@/components/LoadingState.vue'
 import { useFetch } from '@vueuse/core'
 import ProductCard from '@/components/ProductCard.vue'
-const { isFetching, error, data } = useFetch('https://fakestoreapi.com/products').json<Product[]>()
+import { useRoute } from 'vue-router'
+import { computed, ref } from 'vue'
+
+const route = useRoute()
+const url = computed(() => `https://fakestoreapi.com/products/category/${route.params.category}`)
+const { isFetching, error, data } = useFetch(url, { refetch: true }).json<Product[]>()
 </script>
 
 <template>

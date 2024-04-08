@@ -4,7 +4,7 @@ import MainNavbar from './components/MainNavbar.vue'
 
 <template>
   <MainNavbar />
-  <main class="max-w-[1000px] mx-auto px-2 mt-20">
+  <main class="max-w-[1400px] mx-auto px-2 mt-20">
     <RouterView />
   </main>
 </template>
