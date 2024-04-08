@@ -1,4 +1,5 @@
 import CategoryView from '@/views/CategoryView.vue'
+import CheckoutView from '@/views/CheckoutView.vue'
 import HomeView from '@/views/HomeView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
@@ -14,6 +15,11 @@ const router = createRouter({
       path: '/category/:category',
       name: 'category',
       component: CategoryView
+    },
+    {
+      path: '/checkout',
+      name: 'checkout',
+      component: CheckoutView
     }
   ]
 })
