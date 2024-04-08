@@ -3,7 +3,8 @@ import CardNavItem from '@/components/sub/CardItem.vue'
 import { useCartStore } from '@/stores/pinia'
 import { toast } from 'vue3-toastify'
 import { FaRegFaceSadTear } from '@kalimahapps/vue-icons'
-const { cart } = useCartStore()
+import router from '@/router'
+const { cart, clearCart } = useCartStore()
 
 const inputs = [
   'Name',
@@ -15,7 +16,7 @@ const inputs = [
 ]
 
 const completePayment = async () => {
-  const promi = new Promise((resolve) => setTimeout(resolve, 3000))
+  const promi = new Promise((resolve) => setTimeout(resolve, 4000))
   await toast.promise(
     promi,
     {
@@ -26,6 +27,8 @@ const completePayment = async () => {
       position: 'top-center'
     }
   )
+  clearCart()
+  router.push('/thankyou')
 }
 </script>
 
