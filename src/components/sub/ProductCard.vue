@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useCartStore } from '@/stores/counter'
+import { useCartStore } from '@/stores/pinia'
 import type { Product } from '@/types'
 import { FaRegHeart } from '@kalimahapps/vue-icons'
 import { FaCartPlus } from '@kalimahapps/vue-icons'
@@ -25,7 +25,7 @@ const { addToCart } = useCartStore()
       <span>{{ product.price }} $</span>
       <div
         @click="addToCart(product)"
-        class="text-[#119e00] border border-white group-hover:border-[#119e00] hover:bg-[#119e00] hover:text-white flex items-center justify-center rounded-lg bg-white size-10 transition-all opacity-0 group-hover:opacity-100"
+        class="text-accent border border-white group-hover:border-accent hover:bg-accent hover:text-white flex items-center justify-center rounded-lg bg-white size-10 transition-all opacity-0 group-hover:opacity-100"
       >
         <FaCartPlus class="size-6" />
       </div>

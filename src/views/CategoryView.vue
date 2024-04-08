@@ -2,9 +2,9 @@
 import type { Product } from '@/types'
 import LoadingState from '@/components/LoadingState.vue'
 import { useFetch } from '@vueuse/core'
-import ProductCard from '@/components/ProductCard.vue'
 import { useRoute } from 'vue-router'
 import { computed, ref } from 'vue'
+import ProductCard from '@/components/sub/ProductCard.vue'
 
 const route = useRoute()
 const url = computed(() => `https://fakestoreapi.com/products/category/${route.params.category}`)
