@@ -6,7 +6,7 @@ import { toast } from 'vue3-toastify'
 export const useCartStore = defineStore('cart', () => {
   const cart = ref<Product[]>([])
   function addToCart(newItem: Product) {
-    if (cart.value.includes(newItem)) {
+    if (cart.value.find((ele) => ele.id === newItem.id)) {
       toast('You already have this product in your shopping cart.', {
         type: 'error',
         hideProgressBar: true,
@@ -41,7 +41,7 @@ export const useCartStore = defineStore('cart', () => {
 export const useFavStore = defineStore('fav', () => {
   const fav = ref<Product[]>([])
   function addToFav(newItem: Product) {
-    if (fav.value.includes(newItem)) {
+    if (fav.value.find((ele) => ele.id === newItem.id)) {
       removeFromFav(newItem)
       return
     }

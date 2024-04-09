@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import CardNavItem from '@/components/sub/CardItem.vue'
 import { useCartStore } from '@/stores/pinia'
-import { toast } from 'vue3-toastify'
-import { FaRegFaceSadTear } from '@kalimahapps/vue-icons'
+import { FaRegFaceSadTear, FaSpinner, FaCheck } from '@kalimahapps/vue-icons'
 import router from '@/router'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 const { cart, clearCart } = useCartStore()
-
+const buttonText = ref('Complete payment')
 const inputs = [
   'Name',
   'Street and number of house / flat',
@@ -17,17 +16,10 @@ const inputs = [
 ]
 
 const completePayment = async () => {
-  const promi = new Promise((resolve) => setTimeout(resolve, 4000))
-  await toast.promise(
-    promi,
-    {
-      pending: 'Payment processing…',
-      success: 'Success'
-    },
-    {
-      position: 'top-center'
-    }
-  )
+  buttonText.value = 'Payment processing…'
+  await new Promise((resolve) => setTimeout(resolve, 4000))
+  buttonText.value = 'Success!'
+  await new Promise((resolve) => setTimeout(resolve, 1000))
   clearCart()
   router.push('/thankyou')
 }
@@ -100,9 +92,11 @@ const totalPrice = computed(() => {
 
         <div
           @click="completePayment"
-          class="h-10 flex items-center justify-center font-semibold border-2 border-accent mx-10 mt-auto rounded-md cursor-pointer hover:bg-accent transition-colors hover:text-white"
+          class="h-10 flex items-center gap-x-1 justify-center font-semibold border-2 border-accent mx-10 mt-auto rounded-md cursor-pointer hover:bg-accent transition-colors hover:text-white"
         >
-          <span>Complete payment</span>
+          <FaSpinner v-if="buttonText == 'Payment processing…'" class="animate-spin" />
+          <FaCheck v-if="buttonText == 'Success!'" class="text-accent" />
+          <span>{{ buttonText }}</span>
         </div>
       </div>
     </div>
