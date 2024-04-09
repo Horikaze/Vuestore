@@ -1,11 +1,9 @@
 <script setup lang="ts">
+import StarRating from '@/components/sub/StarRating.vue'
 import type { Product } from '@/types'
 import { useFetch } from '@vueuse/core'
 import { useRoute } from 'vue-router'
-import { FaRegStar } from '@kalimahapps/vue-icons'
-import StarRating from '@/components/sub/StarRating.vue'
 const route = useRoute()
-console.log(route.params.id)
 
 const { data, isFetching, error } = useFetch(
   `https://fakestoreapi.com/products/${route.params.id}`
@@ -18,6 +16,7 @@ const { data, isFetching, error } = useFetch(
       <div class="w-full bg-gray-300 aspect-square">
         <!-- <img :src="data?.image" alt="" /> -->
       </div>
+
     </div>
     <div class="h-1 w-full md:w-1 md:h-full bg-gray-300 rounded-full" />
     <div class="w-full flex flex-col gap-y-1">

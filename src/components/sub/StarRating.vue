@@ -17,5 +17,5 @@ defineProps<{ product: Product }>()
     <span class="text-sm font-semibold line-clamp-1 text-black"
       >{{ product.rating.rate }}/5 ({{ product.rating.rate }} ratings)</span
     >
-  </div>
+  </div> 
 </template>
