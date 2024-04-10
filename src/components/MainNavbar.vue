@@ -33,7 +33,7 @@ const categories = [
       </RouterLink>
       <div class="gap-x-3 flex items-center justify-center h-full">
         <RouterLink v-for="(item, index) in categories"
-          class="cursor-pointer hover:bg-gray-300 h-full px-2 border-b-4 border-t-4 border-white flex flex-col justify-center transition-all"
+          class="cursor-pointer hover:bg-gray-300 h-full px-2 rounded-t-md border-b-4 border-t-4 border-white flex flex-col justify-center transition-all"
           active-class="border-b-accent" :key="index" :to="item.href"><span>{{ item.title }}</span></RouterLink>
         <FavNav />
         <CartNav />

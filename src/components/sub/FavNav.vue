@@ -31,7 +31,7 @@ useClickOutside(cartContainerRef, () => {
             </div>
         </div>
         <div ref="cartContainerRef" v-if="isOpen"
-            class="absolute top-0 mt-14 bg-white min-w-[400px] border rounded-md z-20 right-0 p-2">
+            class="absolute top-14 bg-white min-w-[400px] border rounded-md z-20 -right-[103px] md:right-0 p-2">
             <h3 class="font-bold text-center text-xl">Favorites</h3>
             <div v-if="fav.length > 0" class="space-y-1 mt-2 overflow-y-scroll h-[350px] [&::-webkit-scrollbar]:hidden">
                 <CardFav v-for="(item, index) in fav" :key="index" :product="item" />

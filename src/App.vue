@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import MainNavbar from './components/MainNavbar.vue'
 import { FaHeart, FaBandsVuejs, FaBandsGithub } from "@kalimahapps/vue-icons";
+import MobileNav from './components/MobileNav.vue';
 </script>
 
 <template>
-  <MainNavbar />
+  <MainNavbar class="hidden md:block" />
+  <MobileNav class="block md:hidden" />
   <main class="max-w-[1400px] mx-auto px-2 mt-20 mb-5 min-h-screen">
     <RouterView />
   </main>
