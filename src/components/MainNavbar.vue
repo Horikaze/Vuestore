@@ -28,8 +28,9 @@ const categories = [
 <template>
   <header class="w-full h-14 drop-shadow-md bg-white fixed top-0 z-20">
     <nav class="flex items-center justify-between h-full max-w-[1400px] mx-auto px-2">
-      <RouterLink to="/" class="relative h-full">
-        <img src="/logo.svg" alt="" class="size-full invert py-1" />
+      <RouterLink to="/" class="flex items-center h-full">
+        <span
+          class="bg-gradient-to-r from-accent to-pink-500 bg-clip-text text-transparent font-bold text-3xl">SimpleShop</span>
       </RouterLink>
       <div class="gap-x-3 flex items-center justify-center h-full">
         <RouterLink v-for="(item, index) in categories"
@@ -41,3 +42,4 @@ const categories = [
     </nav>
   </header>
 </template>
+http://localhost:5173/
