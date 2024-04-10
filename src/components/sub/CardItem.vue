@@ -17,8 +17,8 @@ const router = useRouter()
       <img :src="product.image" :alt="product.title" class="size-full object-contain" />
     </RouterLink>
     <div class="flex flex-1 flex-col font-semibold">
-      <RouterLink :to="`/product/${product.id}`" class="line-clamp-2 text-sm">{{ product.title }}</RouterLink>
-      <div class="flex justify-between items-center w-full mt-auto">
+      <RouterLink :to="`/product/${product.id}`" class="line-clamp-2 text-sm h-full">{{ product.title }}</RouterLink>
+      <div class="flex justify-between items-center w-full">
         <span class="ml-1">{{ product.price }}$</span>
         <div @click.stop="removeFromCart(product)"
           class="text-red-500 z-20 cursor-pointer rounded-md p-1.5 hover:bg-gray-300 transition-all">

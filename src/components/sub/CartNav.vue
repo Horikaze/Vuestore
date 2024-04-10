@@ -53,7 +53,7 @@ const checkout = () => {
         <CardNavItem v-for="(item, index) in cart" :key="index" :product="item" />
       </div>
       <div v-else class="size-full gap-y-1 flex flex-col items-center justify-center h-[350px]">
-        <span class="font-semibold text-2xl">Your cart is empty</span>
+        <span class="font-semibold text-2xl text-center">Your cart is empty</span>
         <FaRegFaceSadTear class="size-8" />
       </div>
       <p>

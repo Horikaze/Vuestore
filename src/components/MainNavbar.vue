@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import CartNav from './sub/CartNav.vue'
+import FavNav from './sub/FavNav.vue';
 const categories = [
   {
     title: 'All products',
@@ -31,14 +32,10 @@ const categories = [
         <img src="/logo.svg" alt="" class="size-full invert py-1" />
       </RouterLink>
       <div class="gap-x-3 flex items-center justify-center h-full">
-        <RouterLink
-          v-for="(item, index) in categories"
+        <RouterLink v-for="(item, index) in categories"
           class="cursor-pointer hover:bg-gray-300 h-full px-2 border-b-4 border-t-4 border-white flex flex-col justify-center transition-all"
-          active-class="border-b-accent"
-          :key="index"
-          :to="item.href"
-          ><span>{{ item.title }}</span></RouterLink
-        >
+          active-class="border-b-accent" :key="index" :to="item.href"><span>{{ item.title }}</span></RouterLink>
+        <FavNav />
         <CartNav />
       </div>
     </nav>

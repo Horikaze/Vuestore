@@ -1,7 +1,3 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10">
     <div v-for="i in 5" :key="i" class="w-full h-[420px] flex flex-col justify-center bg-white p-3 border-2 rounded-md">
