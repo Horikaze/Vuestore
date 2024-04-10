@@ -3,11 +3,13 @@ import StarRating from '@/components/sub/StarRating.vue'
 import type { Product } from '@/types'
 import { useFetch } from '@vueuse/core'
 import { useRoute, useRouter } from 'vue-router'
-import { FaCartPlus, FaCartShopping } from "@kalimahapps/vue-icons";
-import { useCartStore } from '@/stores/pinia';
+import { FaCartPlus, FaCartShopping, FaHeart, FaRegHeart } from "@kalimahapps/vue-icons";
+
+import { useCartStore, useFavStore } from '@/stores/pinia';
 const route = useRoute()
 const router = useRouter()
 const { addToCart, cart } = useCartStore()
+const { addToFav, fav } = useFavStore()
 import { FaCheck } from "@kalimahapps/vue-icons";
 import ProductViewLoading from '@/components/sub/ProductViewLoading.vue';
 const { data: product, isFetching, error } = useFetch(
@@ -22,16 +24,19 @@ const buyNow = () => {
 
   addToCart(product.value!, true)
   router.push("/checkout")
-
 }
-
 </script>
 
 <template>
   <ProductViewLoading v-if="isFetching" />
   <div v-else class="flex flex-col md:flex-row justify-center w-full gap-2 md:h-[600px]">
-    <div class="flex w-full flex-col items-center justify-center">
-      <img :src="product?.image" :alt="product?.title" class="size-full object-contain" />
+    <div class="flex w-full flex-col items-center justify-center relative">
+      <div @click.stop="addToFav(product!)"
+        class="rounded-full absolute right-1 top-1 text-red-500 flex items-center justify-center cursor-pointer hover:bg-gray-200 bg-white size-10 transition-all">
+        <FaHeart v-if="fav.find((ele) => ele.id === product!.id)" class="size-6" />
+        <FaRegHeart v-else class="size-6" />
+      </div>
+      <img :src="product?.image" :alt="product?.title" class="size-full object-contain select-none" />
     </div>
     <div class="h-[1px] w-full md:w-[1px] md:h-full bg-gray-300 rounded-full" />
     <div class="w-full flex flex-col min-h-[500px]">

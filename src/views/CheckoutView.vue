@@ -4,6 +4,7 @@ import { useCartStore } from '@/stores/pinia'
 import { FaRegFaceSadTear, FaSpinner, FaCheck } from '@kalimahapps/vue-icons'
 import router from '@/router'
 import { computed, ref } from 'vue'
+import { toast } from 'vue3-toastify'
 const { cart, clearCart } = useCartStore()
 const buttonText = ref('Complete payment')
 const inputs = [
@@ -16,6 +17,16 @@ const inputs = [
 ]
 
 const completePayment = async () => {
+  if (cart.length <= 0) {
+    toast('Your cart is empty.', {
+      type: 'error',
+      hideProgressBar: true,
+      transition: 'slide',
+      dangerouslyHTMLString: true,
+      position: 'top-left'
+    })
+    return
+  }
   buttonText.value = 'Payment processing…'
   await new Promise((resolve) => setTimeout(resolve, 4000))
   buttonText.value = 'Success!'

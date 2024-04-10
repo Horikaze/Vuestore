@@ -47,7 +47,7 @@ export const useFavStore = defineStore('fav', () => {
       return
     }
     fav.value.push(newItem)
-    toast(`Item <strong>${newItem.title}</strong> has been added to cart`, {
+    toast(`Item <strong>${newItem.title}</strong> has been added to favorites`, {
       type: 'success',
       hideProgressBar: true,
       transition: 'slide',

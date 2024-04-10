@@ -5,7 +5,7 @@ import { ref } from 'vue'
 import { useClickOutside } from '../hooks/useClickOutside'
 import CardFav from './CardFav.vue'
 const { fav } = useFavStore()
-const isOpen = ref(true)
+const isOpen = ref(false)
 
 const cartContainerRef = ref<HTMLElement | null>(null)
 
@@ -26,7 +26,7 @@ useClickOutside(cartContainerRef, () => {
                 <FaHeart class="size-full text-red-500" />
                 <span class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 text-white text-sm">{{
                     fav.length
-                }}</span>
+                    }}</span>
 
             </div>
         </div>

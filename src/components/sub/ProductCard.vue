@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { useCartStore, useFavStore } from '@/stores/pinia'
 import type { Product } from '@/types'
-import { FaRegHeart } from '@kalimahapps/vue-icons'
-import { FaHeart } from '@kalimahapps/vue-icons'
-import { FaCartPlus } from '@kalimahapps/vue-icons'
+import { FaHeart, FaCartPlus, FaRegHeart } from '@kalimahapps/vue-icons'
 import { useRouter } from 'vue-router'
 import StarRating from './StarRating.vue'
 defineProps<{
