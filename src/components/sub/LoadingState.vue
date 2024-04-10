@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import LoadingCard from './sub/LoadingCard.vue'
+import LoadingCard from './LoadingCard.vue';
+
 
 const myArray = [1, 2, 3, 4, 5]
 </script>
