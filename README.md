@@ -1,4 +1,4 @@
-Simple shop app made using Vue 3, https://fakestoreapi.com
+Simple shop app made using Vue 3 and https://fakestoreapi.com
 
 ## Run this project locally
 
