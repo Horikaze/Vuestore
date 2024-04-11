@@ -4,7 +4,7 @@ import type { Product } from '@/types';
 import { FaCartPlus, FaCartShopping, FaHeart, FaRegHeart } from "@kalimahapps/vue-icons";
 import { useFetch } from '@vueuse/core';
 import { useRoute, useRouter } from 'vue-router';
-
+import { FaRegFileExcel } from "@kalimahapps/vue-icons";
 import ProductViewLoading from '@/components/loadingSates/ProductViewLoading.vue';
 import { useCartStore, useFavStore } from '@/stores/pinia';
 import { FaCheck } from "@kalimahapps/vue-icons";
@@ -29,14 +29,14 @@ const buyNow = () => {
 
 <template>
   <ProductViewLoading v-if="isFetching" />
-  <div v-else class="flex flex-col md:flex-row justify-center w-full gap-2 md:h-[600px]">
+  <div v-else-if="product" class="flex flex-col md:flex-row justify-center w-full gap-2 md:h-[600px]">
     <div class="flex w-full flex-col items-center justify-center relative">
       <div @click.stop="addToFav(product!)"
         class="rounded-full absolute right-1 top-1 text-red-500 flex items-center justify-center cursor-pointer hover:bg-gray-200 bg-white size-10 transition-all">
         <FaHeart v-if="fav.find((ele) => ele.id === product!.id)" class="size-6" />
         <FaRegHeart v-else class="size-6" />
       </div>
-      <img :src="product?.image" :alt="product?.title" class="size-full object-contain select-none" />
+      <img :src="product?.image" :alt="product?.title" class="size-full object-contain select-none rounded-md" />
     </div>
     <div class="h-[1px] w-full md:w-[1px] md:h-full bg-gray-300 rounded-full" />
     <div class="w-full flex flex-col min-h-[500px]">
@@ -61,4 +61,11 @@ const buyNow = () => {
       </div>
     </div>
   </div>
+  <template v-else>
+    <div class="flex flex-col items-center justify-center mt-52 gap-y-4 text-center">
+      <h2 class="text-3xl font-semibold">This item does not exist.</h2>
+      <FaRegFileExcel class="size-12" />
+      <RouterLink to="/" class="underline">Return to home page</RouterLink>
+    </div>
+  </template>
 </template>

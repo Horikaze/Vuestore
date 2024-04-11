@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { Product } from '@/types'
-import { useFetch } from '@vueuse/core'
-import ProductCard from '@/components/sub/ProductCard.vue'
 import LoadingState from '@/components/loadingSates/LoadingState.vue';
+import ProductCard from '@/components/sub/ProductCard.vue';
+import type { Product } from '@/types';
+import { useFetch } from '@vueuse/core';
 const { isFetching, error, data } = useFetch('https://fakestoreapi.com/products').json<Product[]>()
 </script>
 

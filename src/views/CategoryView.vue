@@ -1,10 +1,10 @@
 <script setup lang="ts">
+import LoadingState from '@/components/loadingSates/LoadingState.vue'
+import ProductCard from '@/components/sub/ProductCard.vue'
 import type { Product } from '@/types'
 import { useFetch } from '@vueuse/core'
+import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { computed, ref } from 'vue'
-import ProductCard from '@/components/sub/ProductCard.vue'
-import LoadingState from '@/components/loadingSates/LoadingState.vue'
 
 const route = useRoute()
 const url = computed(() => `https://fakestoreapi.com/products/category/${route.params.category}`)
