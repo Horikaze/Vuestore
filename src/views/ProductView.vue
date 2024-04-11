@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import StarRating from '@/components/sub/StarRating.vue'
-import type { Product } from '@/types'
-import { useFetch } from '@vueuse/core'
-import { useRoute, useRouter } from 'vue-router'
+import StarRating from '@/components/sub/StarRating.vue';
+import type { Product } from '@/types';
 import { FaCartPlus, FaCartShopping, FaHeart, FaRegHeart } from "@kalimahapps/vue-icons";
+import { useFetch } from '@vueuse/core';
+import { useRoute, useRouter } from 'vue-router';
 
+import ProductViewLoading from '@/components/loadingSates/ProductViewLoading.vue';
 import { useCartStore, useFavStore } from '@/stores/pinia';
+import { FaCheck } from "@kalimahapps/vue-icons";
 const route = useRoute()
 const router = useRouter()
 const { addToCart, cart } = useCartStore()
 const { addToFav, fav } = useFavStore()
-import { FaCheck } from "@kalimahapps/vue-icons";
-import ProductViewLoading from '@/components/sub/ProductViewLoading.vue';
 const { data: product, isFetching, error } = useFetch(
   `https://fakestoreapi.com/products/${route.params.id}`
 ).json<Product>()

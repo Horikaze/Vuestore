@@ -2,7 +2,7 @@
 import { useFavStore } from '@/stores/pinia'
 import { FaHeart, FaHeartCrack } from '@kalimahapps/vue-icons'
 import { ref } from 'vue'
-import { useClickOutside } from '../hooks/useClickOutside'
+import { useClickOutside } from '../../hooks/useClickOutside'
 import CardFav from './CardFav.vue'
 const { fav } = useFavStore()
 const isOpen = ref(false)

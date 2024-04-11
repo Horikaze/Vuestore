@@ -21,7 +21,7 @@ const router = useRouter()
       <div class="flex justify-between items-center w-full">
         <span class="ml-1">{{ product.price }}$</span>
         <div @click.stop="removeFromCart(product)"
-          class="text-red-500 z-20 cursor-pointer rounded-md p-1.5 hover:bg-gray-300 transition-all">
+          class="text-red-500 cursor-pointer rounded-md p-1.5 hover:bg-gray-300 transition-all">
           <FaRegTrashCan class="size-5" />
         </div>
       </div>

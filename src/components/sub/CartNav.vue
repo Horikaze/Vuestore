@@ -2,7 +2,7 @@
 import { useCartStore } from '@/stores/pinia'
 import { FaCartShopping } from '@kalimahapps/vue-icons'
 import { computed, ref } from 'vue'
-import { useClickOutside } from '../hooks/useClickOutside'
+import { useClickOutside } from '../../hooks/useClickOutside'
 import CardNavItem from './CardItem.vue'
 import { FaRegFaceSadTear } from '@kalimahapps/vue-icons'
 import router from '@/router'

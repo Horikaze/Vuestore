@@ -4,7 +4,7 @@ import { useFetch } from '@vueuse/core'
 import { useRoute } from 'vue-router'
 import { computed, ref } from 'vue'
 import ProductCard from '@/components/sub/ProductCard.vue'
-import LoadingState from '@/components/sub/LoadingState.vue'
+import LoadingState from '@/components/loadingSates/LoadingState.vue'
 
 const route = useRoute()
 const url = computed(() => `https://fakestoreapi.com/products/category/${route.params.category}`)

@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import CartNav from './sub/CartNav.vue'
 import FavNav from './sub/FavNav.vue';
 import { CgMenu } from "@kalimahapps/vue-icons";
-import { useClickOutside } from './hooks/useClickOutside';
+import { useClickOutside } from '../hooks/useClickOutside';
 const categories = [
     {
         title: 'All products',
@@ -34,7 +34,7 @@ useClickOutside(navRef, () => {
 </script>
 
 <template>
-    <header class="w-full h-14 drop-shadow-md bg-white fixed top-0 z-20 font-semibold text-xl">
+    <header class="w-full h-14 drop-shadow-md bg-white fixed top-0 z-20 font-semibold text-lg">
         <nav class="flex items-center justify-between h-full max-w-[1400px] mx-auto px-2 relative">
             <CgMenu @click.stop="isOpen = !isOpen"
                 class="size-10 hover:bg-gray-300 transition-colors rounded-md cursor-pointer" />
