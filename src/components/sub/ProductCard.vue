@@ -23,7 +23,7 @@ const { addToFav, fav } = useFavStore()
       </div>
     </div>
     <RouterLink :to="`/product/${product.id}`" class="w-full h-56 rounded-md relative overflow-hidden select-none">
-      <img :src="product.image" :alt="product.title" class="object-contain size-full" loading="lazy">
+      <img :src="product.image" :alt="product.title" class="object-contain size-full">
     </RouterLink>
     <RouterLink :to="`/product/${product.id}`" class="grow flex items-end w-full leading-5"><span>{{ product.title
         }}</span></RouterLink>
