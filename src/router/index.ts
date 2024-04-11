@@ -3,13 +3,13 @@ import CheckoutView from '@/views/CheckoutView.vue'
 import HomeView from '@/views/HomeView.vue'
 import ProductView from '@/views/ProductView.vue'
 import ThankyouView from '@/views/ThankYouView.vue'
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 const router = createRouter({
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior() {
     return { top: 0 }
   },
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes: [
     {
       path: '/',
