@@ -70,16 +70,16 @@ const totalPrice = computed(() => {
             <input placeholder="Card number" type="text"
               class="focus:outline-none border-2 border-gray-400 px-2 py-1 rounded-sm" />
           </div>
-          <div class="flex justify-between items-center">
-            <div>
+          <div class="flex justify-between items-center flex-col md:flex-row gap-x-2">
+            <div class="w-full">
               <p class="font-semibold">Card expiry date</p>
               <input placeholder="Card expiry date" type="date"
-                class="focus:outline-none border-2 border-gray-400 px-2 py-1 rounded-sm" />
+                class="focus:outline-none border-2 border-gray-400 px-2 py-1 rounded-sm w-full" />
             </div>
-            <div>
+            <div class="w-full">
               <p class="font-semibold">CVC2 Code</p>
               <input placeholder="CVC2" type="text"
-                class="focus:outline-none border-2 border-gray-400 px-2 py-1 rounded-sm" />
+                class="focus:outline-none border-2 border-gray-400 px-2 py-1 rounded-sm w-full" />
             </div>
           </div>
         </div>

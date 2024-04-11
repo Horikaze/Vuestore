@@ -34,7 +34,7 @@ useClickOutside(navRef, () => {
 </script>
 
 <template>
-    <header class="w-full h-14 drop-shadow-md bg-white fixed top-0 z-20">
+    <header class="w-full h-14 drop-shadow-md bg-white fixed top-0 z-20 font-semibold text-xl">
         <nav class="flex items-center justify-between h-full max-w-[1400px] mx-auto px-2 relative">
             <CgMenu @click.stop="isOpen = !isOpen"
                 class="size-10 hover:bg-gray-300 transition-colors rounded-md cursor-pointer" />
@@ -43,7 +43,7 @@ useClickOutside(navRef, () => {
                 <CartNav />
             </div>
             <div v-if="isOpen"
-                class="absolute w-full top-[60px] bg-white drop-shadow-md transition-all z-30 rounded-md p-2 space-y-2"
+                class="absolute top-[60px] w-[calc(100vw-16px)] bg-white drop-shadow-md transition-all z-30 rounded-md p-2 space-y-2"
                 ref="navRef">
                 <RouterLink v-for="(item, index) in categories" @click="isOpen = false"
                     class="cursor-pointer hover:bg-gray-300 text-center h-16 flex flex-col justify-center transition-all rounded-md px-2"

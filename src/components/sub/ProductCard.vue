@@ -30,7 +30,7 @@ const { addToFav, fav } = useFavStore()
     <div class="mt-4 text-xl w-full flex items-center justify-between">
       <span>{{ product.price }} $</span>
       <div @click.stop="addToCart(product)"
-        class="text-accent w-14 border border-white group-hover:border-accent hover:bg-accent hover:text-white flex items-center justify-center rounded-lg bg-white size-10 transition-all opacity-0 group-hover:opacity-100">
+        class="text-accent w-14 border-accent border md:border-white group-hover:border-accent hover:bg-accent hover:text-white flex items-center justify-center rounded-lg bg-white size-10 transition-all opacity-100 md:opacity-0 group-hover:opacity-100">
         <FaCartPlus class="size-6" />
       </div>
     </div>

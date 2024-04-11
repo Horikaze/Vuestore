@@ -43,7 +43,7 @@ const checkout = () => {
     <div
       ref="cartContainerRef"
       v-if="isOpen"
-      class="absolute top-14 bg-white min-w-[400px] border rounded-md z-20 right-0 p-2"
+      class="absolute top-14 bg-white md:min-w-[400px] min-w-[calc(100vw-15px)] border rounded-md z-20 right-0 p-2"
     >
       <h3 class="font-bold text-center text-xl">Cart</h3>
       <div
